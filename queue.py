@@ -24,19 +24,20 @@ class Queue():
 def main():
 	#Defining the main function for the queue
 	q = Queue()
+	#q is an object of Stack class
 	while 1:
 		print("1. Enqueue \n2. Dequeue \n3. Show \n4. Quit")
 		print("\nWhat do you wanna do now?")
 		case = int(input())
 		#Starting something, equivalent to Switch statement in C/C++
 		if case == 1:
-			#In this case, we call our enqueue function
+			#In this case, we will call our enqueue function
 			print("Input item, you wanna enqueue:")
 			item = int(input())
 			q.enqueue(item)
 			print("Congrats!",item,"has been enqueued.")
 		elif case == 2:
-			#In this case, we call our dequeue function
+			#In this case, we will call our dequeue function
 			if q.is_empty() == True:
 				print("Sorry, the queue is empty.")
 			else:
