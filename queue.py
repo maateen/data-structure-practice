@@ -6,19 +6,19 @@ class Queue():
 		self.myqueue = []
 
 	def is_empty(self):
-		#This will check whether the queue is empty or not
+		#This method will check whether the queue is empty or not
 		if len(self.myqueue) > 0:
 			return False
 		else:
 			return True
 
 	def enqueue(self, item):
-		#This will enqueue a item to the defined queue
+		#This method will enqueue a item to the defined queue
 		return self.myqueue.insert(0, item)
 		#innsert(0, item) will insert "item" to the 0th position of the defined list
 
 	def dequeue(self):
-		#This will dequeue an item from defined queue
+		#This method will dequeue an item from defined queue
 		return self.myqueue.pop()
 
 def main():

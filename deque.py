@@ -6,26 +6,26 @@ class Deque():
 		self.mydeque = []
 
 	def is_empty(self):
-		#This will check whether the deque is empty or not
+		#This method will check whether the deque is empty or not
 		if len(self.mydeque) > 0:
 			return False
 		else:
 			return True
 
 	def add_front(self, item):
-		#This will add an item at the front of defined deque
+		#This method will add an item at the front of defined deque
 		return self.mydeque.append(item)
 
 	def add_rear(self, item):
-		#This will add an item at the rear of defined deque
+		#This method will add an item at the rear of defined deque
 		return self.mydeque.insert(0, item)
 
 	def remove_front(self):
-		#This will pop an item from defined deque
+		#This method will pop an item from defined deque
 		return self.mydeque.pop(0)
 
 	def remove_rear(self):
-		#This will pop an item from defined deque
+		#This method will pop an item from defined deque
 		return self.mydeque.pop()
 
 def main():

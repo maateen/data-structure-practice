@@ -1,27 +1,27 @@
 class Stack():
-	"""This class will define several functions which will work for stack"""
+	"""This class will define several methods which will work for stack"""
 
 	def __init__(self):
 		#Defining a list which will act as stack container
 		self.mystack = []
 
 	def is_empty(self):
-		#This will check whether the stack is empty or not
+		#This method will check whether the stack is empty or not
 		if len(self.mystack) > 0:
 			return False
 		else:
 			return True
 
 	def push(self, item):
-		#This will push an item to the defined stack
+		#This method will push an item to the defined stack
 		return self.mystack.append(item)
 
 	def pop(self):
-		#This will pop an item from defined stack
+		#This method will pop an item from defined stack
 		return self.mystack.pop()
 
 	def peek(self):
-		#This will peek an item from the stack means won't remove it
+		#This method will peek an item from the stack means won't remove it
 		return self.mystack[len(self.mystack)-1]
 def main():
 	#Defining the main function for the stack
