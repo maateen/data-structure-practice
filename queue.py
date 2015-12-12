@@ -48,6 +48,7 @@ def main():
 			else:
 				print("The current condition of our queue:",q.myqueue)
 		elif case == 4:
+			#In this case, we will quit our script
 			print("The script is gonna quit.")
 			quit()
 		else:
