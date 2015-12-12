@@ -13,19 +13,20 @@ class Stack():
 			return True
 
 	def push(self, item):
-		#This will push a item to the defined stack
+		#This will push an item to the defined stack
 		return self.mystack.append(item)
 
 	def pop(self):
-		#This will pop a item from defined stack
+		#This will pop an item from defined stack
 		return self.mystack.pop()
 
 	def peek(self):
-		#This will peek a item from the stack means won't remove it
+		#This will peek an item from the stack means won't remove it
 		return self.mystack[len(self.mystack)-1]
 def main():
 	#Defining the main function for the stack
 	s = Stack()
+	#s is an object of Stack class
 	while 1:
 		print("1. Push \n2. Pop \n3. Peek \n4. Show \n5. Quit")
 		print("\nWhat do you wanna do now?")
@@ -56,7 +57,7 @@ def main():
 			else:
 				print("The current condition of our stack:",s.mystack)
 		elif case == 5:
-			print("The script is gobba quit.")
+			print("The script is gonna quit.")
 			quit()
 		else:
 			print("Oops! Wrong Choice.")
