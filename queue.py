@@ -24,7 +24,7 @@ class Queue():
 def main():
 	#Defining the main function for the queue
 	q = Queue()
-	#q is an object of Stack class
+	#q is an object of Queue class
 	while 1:
 		print("1. Enqueue \n2. Dequeue \n3. Show \n4. Quit")
 		print("\nWhat do you wanna do now?")
