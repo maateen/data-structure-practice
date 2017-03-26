@@ -7,9 +7,13 @@ class Stack():
         # defining a list which will act as stack container
         self.mystack = []
 
+    def size(self):
+        # this method will return the size of stack
+        return len(self.mystack)
+
     def is_empty(self):
         # this method will check whether the stack is empty or not
-        if len(self.mystack) > 0:
+        if self.size() > 0:
             return False
         else:
             return True
