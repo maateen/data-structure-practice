@@ -44,7 +44,7 @@ def main():
         if case == 1:
             # in this case, we will call our push function
             print("Input item, you wanna push to stack:")
-            item = int(input())
+            item = input()
             s.push(item)
             print("Congrats!", item, "has been pushed.")
         elif case == 2:

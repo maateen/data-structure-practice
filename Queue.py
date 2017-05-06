@@ -41,7 +41,7 @@ def main():
         if case == 1:
             # in this case, we will call our enqueue function
             print("Input item, you wanna enqueue:")
-            item = int(input())
+            item = input()
             q.enqueue(item)
             print("Congrats!", item, "has been enqueued.")
         elif case == 2:
