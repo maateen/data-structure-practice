@@ -22,11 +22,11 @@ class Queue():
         # this method will enqueue a item to the defined queue
         # insert(0, item) will insert "item" to the 0th position of the defined
         # list
-        return self.myqueue.insert(0, item)
+        return self.myqueue.append(item)
 
     def dequeue(self):
         # This method will dequeue an item from defined queue
-        return self.myqueue.pop()
+        return self.myqueue.pop(0)
 
 
 def main():
@@ -55,11 +55,8 @@ def main():
             if q.is_empty():
                 print("Sorry, the queue is empty.")
             else:
-                temp = list(q.myqueue)
-                temp.reverse()
-                print(q.myqueue)
                 print("The current condition of our queue:",
-                      temp)
+                      q.myqueue)
         elif case == 4:
             # in this case, we will quit our script
             print("The script is gonna quit.")

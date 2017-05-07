@@ -16,11 +16,11 @@ class Deque():
         else:
             return True
 
-    def add_front(self, item):
+    def add_rear(self, item):
         # this method will add an item at the front of defined deque
         return self.mydeque.append(item)
 
-    def add_rear(self, item):
+    def add_front(self, item):
         # this method will add an item at the rear of defined deque
         return self.mydeque.insert(0, item)
 
