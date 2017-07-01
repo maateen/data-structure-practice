@@ -126,7 +126,9 @@ class SinglyLinkedList():
         if previous is None:
             self.head = current.get_next_node()
         else:
-            previous.set_next_node(current.get_next_node())
+            temp = current.get_next_node()
+            del current
+            previous.set_next_node(temp)
 
     def pop(self, position=None):
         # removes the last item of the list
@@ -139,7 +141,9 @@ class SinglyLinkedList():
             self.head = None
         else:
             previous.set_next_node(None)
-        return current.get_item()
+        temp = current.get_item()
+        del current
+        return temp
 
 def main():
     # defining the main function for the singly linked list
