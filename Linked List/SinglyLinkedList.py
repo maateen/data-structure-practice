@@ -1,30 +1,46 @@
 class Node(object):
+    """
+    @description: This class will act as node for Linked List and will hold data.
+    @params:
+        item: item means data item
+        next_node: a pointer, indicates the address of next node
+    """
 
     def __init__(self, item=None, next_node=None):
         self.item = item
         self.next_node = next_node
 
     def get_item(self):
+        # returns the data item
         return self.item
 
     def get_next_node(self):
+        # returns the address of new node
         return self.next_node
 
     def set_next_node(self, new_node):
+        # preserve the address of new node in self.next_node (class variable)
         self.next_node = new_node
 
 
 class SinglyLinkedList(object):
+    """
+    @description: This class defines several methods for Singly Linked List.
+    @params:
+        head: indicates the first node of list
+    """
 
     def __init__(self, head=None):
         self.head = head
 
     def add(self, item):
+        # add an item to the head of the list
         new_node = Node(item)
         new_node.set_next_node(self.head)
         self.head = new_node
 
     def append(self, item):
+        # adds an item to the end of the list
         current = self.head
         if current:
             while current.get_next_node():
@@ -34,6 +50,7 @@ class SinglyLinkedList(object):
             self.head = Node(item)
 
     def insert(self, position, item):
+        # adds an item to an exact position of the list
         if position == 0:
             self.add(item)
         elif position == self.size():
@@ -53,12 +70,14 @@ class SinglyLinkedList(object):
                     previous.set_next_node(new_node)
 
     def is_empty(self):
+        # checks whether the list is empty or not
         if self.head == None:
             return True
         else:
             return False
 
     def size(self):
+        # returns the total items number of the list
         current = self.head
         count = 0
         while current:
@@ -67,6 +86,7 @@ class SinglyLinkedList(object):
         return count
 
     def index(self, item):
+        # returns the index position of an item in the list
         current = self.head
         index = 0
         while current:
@@ -78,6 +98,7 @@ class SinglyLinkedList(object):
         return None
 
     def search(self, item):
+        # checks whether an item exist in the list or not
         current = self.head
         found = False
         while current and not found:
@@ -90,6 +111,7 @@ class SinglyLinkedList(object):
         return found
 
     def remove(self, item):
+        # removes an item from the list
         current = self.head
         previous = None
         found = False
@@ -107,6 +129,7 @@ class SinglyLinkedList(object):
             previous.set_next_node(current.get_next_node())
 
     def pop(self, position=None):
+        # removes the last item of the list
         current = self.head
         previous = None
         while current.get_next_node():

@@ -1,6 +1,6 @@
 class Queue():
     """
-    @description: This class will define several methods for Queue.
+    @description: This class defines several methods for Queue.
     """
 
     def __init__(self):
@@ -8,24 +8,24 @@ class Queue():
         self.myqueue = []
 
     def size(self):
-        # this will return the size of the queue
+        # returns the size of the queue
         return len(self.myqueue)
 
     def is_empty(self):
-        # this method will check whether the queue is empty or not
+        # checks whether the queue is empty or not
         if self.size() > 0:
             return False
         else:
             return True
 
     def enqueue(self, item):
-        # this method will enqueue a item to the defined queue
+        # enqueue a item to the defined queue
         # insert(0, item) will insert "item" to the 0th position of the defined
         # list
         return self.myqueue.append(item)
 
     def dequeue(self):
-        # This method will dequeue an item from defined queue
+        # dequeue an item from defined queue
         return self.myqueue.pop(0)
 
 
@@ -65,6 +65,7 @@ def main():
             print("Oops! Wrong Choice.")
             main()
             # finishing something, equivalent to Switch statement in C/C++
+
 
 if __name__ == "__main__":
     main()

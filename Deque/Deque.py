@@ -1,35 +1,37 @@
 class Deque():
-    """this class will define several functions which will work for deque"""
+    """
+    @description: This class defines several methods for deque.
+    """
 
     def __init__(self):
         # defining a list which will act as deque container
         self.mydeque = []
 
     def size(self):
-        # this method will return the size of deque
+        # returns the size of deque
         return len(self.mydeque)
 
     def is_empty(self):
-        # this method will check whether the deque is empty or not
+        # checks whether the deque is empty or not
         if self.size() > 0:
             return False
         else:
             return True
 
     def add_front(self, item):
-        # this method will add an item at the rear of defined deque
+        # adds an item at the rear of defined deque
         return self.mydeque.insert(0, item)
 
     def add_rear(self, item):
-        # this method will add an item at the front of defined deque
+        # adds an item at the front of defined deque
         return self.mydeque.append(item)
 
     def remove_front(self):
-        # this method will pop an item from defined deque
+        # pop an item from defined deque
         return self.mydeque.pop(0)
 
     def remove_rear(self):
-        # this method will pop an item from defined deque
+        # pop an item from defined deque
         return self.mydeque.pop()
 
 

@@ -1,6 +1,6 @@
 class Stack():
     """
-    @description: This class will define several methods for stack.
+    @description: This class defines several methods for stack.
     """
 
     def __init__(self):
@@ -8,26 +8,26 @@ class Stack():
         self.mystack = []
 
     def size(self):
-        # this method will return the size of stack
+        # returns the size of stack
         return len(self.mystack)
 
     def is_empty(self):
-        # this method will check whether the stack is empty or not
+        # checks whether the stack is empty or not
         if self.size() > 0:
             return False
         else:
             return True
 
     def push(self, item):
-        # this method will push an item to the defined stack
+        # push an item to the defined stack
         return self.mystack.append(item)
 
     def pop(self):
-        # this method will pop an item from defined stack
+        # pop an item from defined stack
         return self.mystack.pop()
 
     def peek(self):
-        # this method will peek an item from the stack means won't remove
+        # peeks an item from the stack means won't remove
         # it
         return self.mystack[len(self.mystack) - 1]
 
@@ -74,6 +74,7 @@ def main():
             print("Oops! Wrong Choice.")
             main()
             # finishing something, equivalent to Switch statement in C/C++
+
 
 if __name__ == "__main__":
     main()
