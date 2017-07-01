@@ -42,19 +42,19 @@ def main():
         case = int(input())
         # starting something, equivalent to Switch statement in C/C++
         if case == 1:
-            # in this case, we will call our push function
+            # in this case, we will call our push method
             print("Input item, you wanna push to stack:")
             item = input()
             s.push(item)
             print("Congrats!", item, "has been pushed.")
         elif case == 2:
-            # in this case, we will call our pop function
+            # in this case, we will call our pop method
             if s.is_empty():
                 print("Sorry, the stack is empty.")
             else:
                 print(s.pop())
         elif case == 3:
-            # in this case, we will call our peek function
+            # in this case, we will call our peek method
             if s.is_empty():
                 print("Sorry, the stack is empty.")
             else:

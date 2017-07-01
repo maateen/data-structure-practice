@@ -39,13 +39,13 @@ def main():
         case = int(input())
         # starting something, equivalent to Switch statement in C/C++
         if case == 1:
-            # in this case, we will call our enqueue function
+            # in this case, we will call our enqueue method
             print("Input item, you wanna enqueue:")
             item = input()
             q.enqueue(item)
             print("Congrats!", item, "has been enqueued.")
         elif case == 2:
-            # in this case, we will call our dequeue function
+            # in this case, we will call our dequeue method
             if q.is_empty():
                 print("Sorry, the queue is empty.")
             else:
