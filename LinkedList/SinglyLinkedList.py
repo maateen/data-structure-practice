@@ -1,4 +1,4 @@
-class Node(object):
+class Node():
     """
     @description: This class will act as node for Linked List and will hold data.
     @params:
@@ -23,7 +23,7 @@ class Node(object):
         self.next_node = new_node
 
 
-class SinglyLinkedList(object):
+class SinglyLinkedList():
     """
     @description: This class defines several methods for Singly Linked List.
     @params:
@@ -174,7 +174,6 @@ def main():
             print("There are", mylist.size(), "items in the list.")
         elif case == 5:
             # in this case, we will call our search method
-            mylist.display()
             print("Input item, you wanna search in list:")
             item = input()
             print(mylist.search(item))
