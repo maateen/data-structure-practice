@@ -11,9 +11,9 @@ class Node():
         self.next_node = next_node
 
 
-class CircularlyLinkedList():
+class CircularLinkedList():
     """
-    @description: This class defines several methods for Circularly Linked List.
+    @description: This class defines several methods for Circular Linked List.
     @params:
         head: indicates the first node of list
     """
@@ -176,9 +176,9 @@ class CircularlyLinkedList():
                     print(current.item)
 
 def main():
-    # defining the main function for the Circularly linked list
-    mylist = CircularlyLinkedList()
-    # mylist is an object of CircularlyLinkedList class
+    # defining the main function for the Circular linked list
+    mylist = CircularLinkedList()
+    # mylist is an object of CircularLinkedList class
     while True:
         print("1. Add \n2. Append \n3. Insert \n4. Get Size \n5. Search \n6. Get Index \n7. Remove \n8. Pop \n9. Print List \n10. Quit")
         print("\nWhat do you wanna do now?")
