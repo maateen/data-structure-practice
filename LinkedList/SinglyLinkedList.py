@@ -101,7 +101,7 @@ class SinglyLinkedList():
 
     def remove(self, item):
         # removes an item from the list
-        if is_empty():
+        if self.is_empty():
             print("Sorry, the list is empty.")
         else:
             current = self.head
