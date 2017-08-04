@@ -26,7 +26,10 @@ class Queue():
 
     def dequeue(self):
         # dequeue an item from defined queue
-        return self.myqueue.pop(0)
+        if self.is_empty():
+            raise ValueError("Sorry, the queue is empty.")
+        else:
+            return self.myqueue.pop(0)
 
 
 def main():
@@ -64,8 +67,6 @@ def main():
         else:
             print("Oops! Wrong Choice.")
             main()
-            # finishing something, equivalent to Switch statement in C/C++
-
 
 if __name__ == "__main__":
     main()

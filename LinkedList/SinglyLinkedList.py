@@ -145,7 +145,7 @@ def main():
     mylist = SinglyLinkedList()
     # mylist is an object of SinglyLinkedList class
     while True:
-        print("1. Add \n2. Append \n3. Insert \n4. Get Size \n5. Search \n6. Get Index \n7. Remove \n8. Pop \n9. Print List")
+        print("1. Add \n2. Append \n3. Insert \n4. Get Size \n5. Search \n6. Get Index \n7. Remove \n8. Pop \n9. Print List \n10. Quit")
         print("\nWhat do you wanna do now?")
         case = int(input())
         # starting something, equivalent to Switch statement in C/C++
@@ -204,6 +204,13 @@ def main():
                 print("Sorry, the list is empty.")
             else:
                 mylist.printlist()
+        elif case == 10:
+            # in this case, we will quit our script
+            print("The script is gonna quit.")
+            quit()
+        else:
+            print("Oops! Wrong Choice.")
+            main()
 
 if __name__ == '__main__':
     main()

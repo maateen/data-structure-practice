@@ -24,12 +24,18 @@ class Stack():
 
     def pop(self):
         # pop an item from defined stack
-        return self.mystack.pop()
+        if self.is_empty():
+            raise ValueError("Sorry, the stack is empty.")
+        else:
+            return self.mystack.pop()
 
     def peek(self):
         # peeks an item from the stack means won't remove
         # it
-        return self.mystack[len(self.mystack) - 1]
+        if self.is_empty():
+            raise ValueError("Sorry, the stack is empty.")
+        else:
+            return self.mystack[len(self.mystack) - 1]
 
 
 def main():
@@ -73,8 +79,6 @@ def main():
         else:
             print("Oops! Wrong Choice.")
             main()
-            # finishing something, equivalent to Switch statement in C/C++
-
 
 if __name__ == "__main__":
     main()

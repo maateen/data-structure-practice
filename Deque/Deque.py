@@ -28,11 +28,17 @@ class Deque():
 
     def remove_front(self):
         # pop an item from defined deque
-        return self.mydeque.pop(0)
+        if self.is_empty():
+            raise ValueError("Sorry, the deque is empty.")
+        else:
+            return self.mydeque.pop(0)
 
     def remove_rear(self):
         # pop an item from defined deque
-        return self.mydeque.pop()
+        if self.is_empty():
+            raise ValueError("Sorry, the deque is empty.")
+        else:
+            return self.mydeque.pop()
 
 
 def main():
@@ -81,8 +87,6 @@ def main():
         else:
             print("Oops! Wrong Choice.")
             main()
-        # Finishing something, equivalent to Switch statement in C/C++
-
 
 if __name__ == "__main__":
     main()
