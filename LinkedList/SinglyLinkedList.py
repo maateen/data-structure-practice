@@ -56,6 +56,7 @@ class SinglyLinkedList():
                 else:
                     new_node = Node(item, current)
                     previous.next_node = new_node
+                    current = False
 
     def is_empty(self):
         # checks whether the list is empty or not
@@ -177,6 +178,7 @@ def main():
             print("Input item, you wanna push to list:")
             item = input()
             mylist.insert(position, item)
+            print("Congrats!", item, "has been inserted to position", position,".")
         elif case == 4:
             # in this case, we will call our size method
             print("There are", mylist.size(), "items in the list.")
