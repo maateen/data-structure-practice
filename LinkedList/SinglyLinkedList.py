@@ -133,12 +133,19 @@ class SinglyLinkedList():
         del current
         return temp
 
+    def printlist(self):
+        current = self.head
+        while current.next_node:
+            print(current.item)
+            current = current.next_node
+        print(current.item)
+
 def main():
     # defining the main function for the singly linked list
     mylist = SinglyLinkedList()
     # mylist is an object of SinglyLinkedList class
     while True:
-        print("1. Add \n2. Append \n3. Insert \n4. Get Size \n5. Search \n6. Get Index \n7. Remove \n8. Pop")
+        print("1. Add \n2. Append \n3. Insert \n4. Get Size \n5. Search \n6. Get Index \n7. Remove \n8. Pop \n9. Print List")
         print("\nWhat do you wanna do now?")
         case = int(input())
         # starting something, equivalent to Switch statement in C/C++
@@ -191,6 +198,12 @@ def main():
             else:
                 item = mylist.pop()
                 print("Congrats!", item, "has been removed.")
+        elif case == 9:
+            # in this case, we will print our list
+            if mylist.is_empty():
+                print("Sorry, the list is empty.")
+            else:
+                mylist.printlist()
 
 if __name__ == '__main__':
     main()
