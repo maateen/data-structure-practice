@@ -11,9 +11,9 @@ class Node():
         self.next_node = next_node
 
 
-class SinglyLinkedList():
+class CircularlyLinkedList():
     """
-    @description: This class defines several methods for Singly Linked List.
+    @description: This class defines several methods for Circularly Linked List.
     @params:
         head: indicates the first node of list
     """
@@ -25,17 +25,31 @@ class SinglyLinkedList():
         # add an item to the head of the list
         new_node = Node(item)
         new_node.next_node = self.head
+        current = self.head
+        # if self.head is not None, then set
+        if self.head is not None:
+            while current.next_node is not self.head:
+                current = current.next_node
+            current.next_node = new_node
+        else:
+            new_node.next_node = new_node
         self.head = new_node
 
     def append(self, item):
         # adds an item to the end of the list
+        new_node = Node(item)
         current = self.head
         if current:
-            while current.next_node:
-                current = current.next_node
-            current.next_node = Node(item)
+            while True:
+                if current.next_node is self.head:
+                    current.next_node = new_node
+                    new_node.next_node = self.head
+                    break
+                else:
+                    current = current.next_node
         else:
-            self.head = Node(item)
+            self.head = new_node
+            new_node.next_node = new_node
 
     def insert(self, position, item):
         # adds an item to an exact position of the list
@@ -71,7 +85,10 @@ class SinglyLinkedList():
         count = 0
         while current:
             count += 1
-            current = current.next_node
+            if current.next_node is self.head:
+                current = False
+            else:
+                current = current.next_node
         return count
 
     def index(self, item):
@@ -81,6 +98,8 @@ class SinglyLinkedList():
         while current:
             if current.item == item:
                 return index
+            elif current.next_node is self.head:
+                break
             else:
                 current = current.next_node
                 index += 1
@@ -93,6 +112,8 @@ class SinglyLinkedList():
         while current and not found:
             if current.item == item:
                 found = True
+            elif current.next_node is self.head:
+                current = False
             else:
                 current = current.next_node
         if current is None:
@@ -110,6 +131,8 @@ class SinglyLinkedList():
             while current and not found:
                 if current.item == item:
                     found = True
+                elif current.next_node is self.head:
+                    current = None
                 else:
                     previous = current
                     current = current.next_node
@@ -117,6 +140,7 @@ class SinglyLinkedList():
                 print("Item is not in the list.")
             elif previous is None:
                 self.head = current.next_node
+                self.head.next_node = self.head
             else:
                 temp = current.next_node
                 del current
@@ -125,21 +149,18 @@ class SinglyLinkedList():
 
     def pop(self):
         # removes the last item of the list
-        if self.is_empty():
-            print("Sorry, the list is empty.")
+        current = self.head
+        previous = None
+        while current.next_node is not self.head:
+            previous = current
+            current = current.next_node
+        if current == self.head:
+            self.head = None
         else:
-            current = self.head
-            previous = None
-            while current.next_node:
-                previous = current
-                current = current.next_node
-            if current == self.head:
-                self.head = None
-            else:
-                previous.next_node = None
-            temp = current.item
-            del current
-            return temp
+            previous.next_node = self.head
+        temp = current.item
+        del current
+        return temp
 
     def printlist(self):
         if self.is_empty():
@@ -149,12 +170,15 @@ class SinglyLinkedList():
             print(current.item)
             while current.next_node:
                 current = current.next_node
-                print(current.item)
+                if current is self.head:
+                    break
+                else:
+                    print(current.item)
 
 def main():
-    # defining the main function for the singly linked list
-    mylist = SinglyLinkedList()
-    # mylist is an object of SinglyLinkedList class
+    # defining the main function for the Circularly linked list
+    mylist = CircularlyLinkedList()
+    # mylist is an object of CircularlyLinkedList class
     while True:
         print("1. Add \n2. Append \n3. Insert \n4. Get Size \n5. Search \n6. Get Index \n7. Remove \n8. Pop \n9. Print List \n10. Quit")
         print("\nWhat do you wanna do now?")
