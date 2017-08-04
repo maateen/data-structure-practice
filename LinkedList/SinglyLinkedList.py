@@ -10,18 +10,6 @@ class Node():
         self.item = item
         self.next_node = next_node
 
-    def get_item(self):
-        # returns the data item
-        return self.item
-
-    def get_next_node(self):
-        # returns the address of new node
-        return self.next_node
-
-    def set_next_node(self, new_node):
-        # preserve the address of new node in self.next_node (class variable)
-        self.next_node = new_node
-
 
 class SinglyLinkedList():
     """
@@ -36,16 +24,16 @@ class SinglyLinkedList():
     def add(self, item):
         # add an item to the head of the list
         new_node = Node(item)
-        new_node.set_next_node(self.head)
+        new_node.next_node = self.head
         self.head = new_node
 
     def append(self, item):
         # adds an item to the end of the list
         current = self.head
         if current:
-            while current.get_next_node():
-                current = current.get_next_node()
-            current.set_next_node(Node(item))
+            while current.next_node:
+                current = current.next_node
+            current.next_node = Node(item)
         else:
             self.head = Node(item)
 
@@ -63,11 +51,11 @@ class SinglyLinkedList():
             while current:
                 if index != position:
                     previous = current
-                    current = current.get_next_node()
+                    current = current.next_node
                     index += 1
                 else:
                     new_node = Node(item, current)
-                    previous.set_next_node(new_node)
+                    previous.next_node = new_node
 
     def is_empty(self):
         # checks whether the list is empty or not
@@ -82,7 +70,7 @@ class SinglyLinkedList():
         count = 0
         while current:
             count += 1
-            current = current.get_next_node()
+            current = current.next_node
         return count
 
     def index(self, item):
@@ -90,10 +78,10 @@ class SinglyLinkedList():
         current = self.head
         index = 0
         while current:
-            if current.get_item() == item:
+            if current.item == item:
                 return index
             else:
-                current = current.get_next_node()
+                current = current.next_node
                 index += 1
         return None
 
@@ -102,10 +90,10 @@ class SinglyLinkedList():
         current = self.head
         found = False
         while current and not found:
-            if current.get_item() == item:
+            if current.item == item:
                 found = True
             else:
-                current = current.get_next_node()
+                current = current.next_node
         if current is None:
             raise ValueError("Item is not in the list.")
         return found
@@ -116,32 +104,32 @@ class SinglyLinkedList():
         previous = None
         found = False
         while not found:
-            if current.get_item() == item:
+            if current.item == item:
                 found = True
             else:
                 previous = current
-                current = current.get_next_node()
+                current = current.next_node
         if current is None:
             raise ValueError("Item is not in the list.")
         if previous is None:
-            self.head = current.get_next_node()
+            self.head = current.next_node
         else:
-            temp = current.get_next_node()
+            temp = current.next_node
             del current
-            previous.set_next_node(temp)
+            previous.next_node = temp
 
     def pop(self, position=None):
         # removes the last item of the list
         current = self.head
         previous = None
-        while current.get_next_node():
+        while current.next_node:
             previous = current
-            current = current.get_next_node()
+            current = current.next_node
         if current == self.head:
             self.head = None
         else:
-            previous.set_next_node(None)
-        temp = current.get_item()
+            previous.next_node = None
+        temp = current.item
         del current
         return temp
 
