@@ -25,7 +25,7 @@ class Stack():
     def pop(self):
         # pop an item from defined stack
         if self.is_empty():
-            raise ValueError("Sorry, the stack is empty.")
+            print("Sorry, the stack is empty.")
         else:
             return self.mystack.pop()
 
@@ -33,7 +33,7 @@ class Stack():
         # peeks an item from the stack means won't remove
         # it
         if self.is_empty():
-            raise ValueError("Sorry, the stack is empty.")
+            print("Sorry, the stack is empty.")
         else:
             return self.mystack[len(self.mystack) - 1]
 

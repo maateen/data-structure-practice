@@ -29,14 +29,14 @@ class Deque():
     def remove_front(self):
         # pop an item from defined deque
         if self.is_empty():
-            raise ValueError("Sorry, the deque is empty.")
+            print("Sorry, the deque is empty.")
         else:
             return self.mydeque.pop(0)
 
     def remove_rear(self):
         # pop an item from defined deque
         if self.is_empty():
-            raise ValueError("Sorry, the deque is empty.")
+            print("Sorry, the deque is empty.")
         else:
             return self.mydeque.pop()
 

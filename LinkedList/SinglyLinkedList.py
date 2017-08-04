@@ -95,50 +95,59 @@ class SinglyLinkedList():
             else:
                 current = current.next_node
         if current is None:
-            raise ValueError("Item is not in the list.")
+            print("Item is not in the list.")
         return found
 
     def remove(self, item):
         # removes an item from the list
-        current = self.head
-        previous = None
-        found = False
-        while not found:
-            if current.item == item:
-                found = True
-            else:
-                previous = current
-                current = current.next_node
-        if current is None:
-            raise ValueError("Item is not in the list.")
-        if previous is None:
-            self.head = current.next_node
+        if is_empty():
+            print("Sorry, the list is empty.")
         else:
-            temp = current.next_node
-            del current
-            previous.next_node = temp
+            current = self.head
+            previous = None
+            found = False
+            while not found:
+                if current.item == item:
+                    found = True
+                else:
+                    previous = current
+                    current = current.next_node
+            if current is None:
+                print("Item is not in the list.")
+            if previous is None:
+                self.head = current.next_node
+            else:
+                temp = current.next_node
+                del current
+                previous.next_node = temp
 
     def pop(self, position=None):
         # removes the last item of the list
-        current = self.head
-        previous = None
-        while current.next_node:
-            previous = current
-            current = current.next_node
-        if current == self.head:
-            self.head = None
+        if self.is_empty():
+            print("Sorry, the list is empty.")
         else:
-            previous.next_node = None
-        temp = current.item
-        del current
-        return temp
+            current = self.head
+            previous = None
+            while current.next_node:
+                previous = current
+                current = current.next_node
+            if current == self.head:
+                self.head = None
+            else:
+                previous.next_node = None
+            temp = current.item
+            del current
+            return temp
 
     def printlist(self):
-        current = self.head
-        while current.next_node:
+        if self.is_empty():
+            print("Sorry, the list is empty.")
+        else:
+            current = self.head
             print(current.item)
-            current = current.next_node
-        print(current.item)
+            while current.next_node:
+                current = current.next_node
+                print(current.item)
 
 def main():
     # defining the main function for the singly linked list

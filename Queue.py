@@ -27,7 +27,7 @@ class Queue():
     def dequeue(self):
         # dequeue an item from defined queue
         if self.is_empty():
-            raise ValueError("Sorry, the queue is empty.")
+            print("Sorry, the queue is empty.")
         else:
             return self.myqueue.pop(0)
 
