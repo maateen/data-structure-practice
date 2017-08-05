@@ -21,8 +21,8 @@ class SinglyLinkedList():
     def __init__(self, head=None):
         self.head = head
 
-    def add(self, item):
-        # add an item to the head of the list
+    def appendleft(self, item):
+        # appendleft an item to the head of the list
         new_node = Node(item)
         new_node.next_node = self.head
         self.head = new_node
@@ -40,7 +40,7 @@ class SinglyLinkedList():
     def insert(self, position, item):
         # adds an item to an exact position of the list
         if position == 0:
-            self.add(item)
+            self.appendleft(item)
         elif position == self.size():
             self.append(item)
         elif position > self.size():
@@ -100,7 +100,7 @@ class SinglyLinkedList():
         return found
 
     def remove(self, item):
-        # removes an item from the list
+        # removes an item from the listot
         if self.is_empty():
             print("Sorry, the list is empty.")
         else:
@@ -156,24 +156,24 @@ def main():
     mylist = SinglyLinkedList()
     # mylist is an object of SinglyLinkedList class
     while True:
-        print("1. Add \n2. Append \n3. Insert \n4. Get Size \n5. Search \n6. Get Index \n7. Remove \n8. Pop \n9. Print List \n10. Quit")
+        print("1. Append to Left \n2. Append \n3. Insert \n4. Get Size \n5. Search \n6. Get Index \n7. Remove \n8. Pop \n9. Print List \n10. Quit")
         print("\nWhat do you wanna do now?")
         case = int(input())
         # starting something, equivalent to Switch statement in C/C++
         if case == 1:
-            # in this case, we will call our add method
-            print("Input item, you wanna add to list:")
+            # in this case, we will call our appendleft method
+            print("Input item, you wanna append to left of list:")
             item = input()
-            mylist.add(item)
+            mylist.appendleft(item)
             print("Congrats!", item, "has been added.")
         elif case == 2:
-            # in this case, we will call our add method
+            # in this case, we will call our appendleft method
             print("Input item, you wanna append to list:")
             item = input()
             mylist.append(item)
             print("Congrats!", item, "has been appended.")
         elif case == 3:
-            # in this case, we will call our add method
+            # in this case, we will call our appendleft method
             print("Input position:")
             position = int(input())
             print("Input item, you wanna push to list:")
