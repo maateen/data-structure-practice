@@ -99,29 +99,16 @@ class SinglyLinkedList():
             print("Item is not in the list.")
         return found
 
-    def remove(self, item):
-        # removes an item from the listot
+    def popleft(self):
+        # removes the first item of the list
         if self.is_empty():
             print("Sorry, the list is empty.")
         else:
             current = self.head
-            previous = None
-            found = False
-            while current and not found:
-                if current.item == item:
-                    found = True
-                else:
-                    previous = current
-                    current = current.next_node
-            if current is None:
-                print("Item is not in the list.")
-            elif previous is None:
-                self.head = current.next_node
-            else:
-                temp = current.next_node
-                del current
-                print("Congrats!", item, "has been removed.")
-                previous.next_node = temp
+            temp = current.item
+            self.head = current.next_node
+            del current
+            return temp
 
     def pop(self):
         # removes the last item of the list
@@ -141,6 +128,31 @@ class SinglyLinkedList():
             del current
             return temp
 
+    def remove(self, item):
+        # removes an item from the listot
+        if self.is_empty():
+            print("Sorry, the list is empty.")
+        else:
+            current = self.head
+            previous = None
+            found = False
+            while current and not found:
+                if current.item == item:
+                    found = True
+                else:
+                    previous = current
+                    current = current.next_node
+            if current is None:
+                print("Item is not in the list.")
+            elif previous is None:
+                self.head = current.next_node
+                del current
+            else:
+                temp = current.next_node
+                del current
+                print("Congrats!", item, "has been removed.")
+                previous.next_node = temp
+
     def printlist(self):
         if self.is_empty():
             print("Sorry, the list is empty.")
@@ -156,7 +168,7 @@ def main():
     mylist = SinglyLinkedList()
     # mylist is an object of SinglyLinkedList class
     while True:
-        print("1. Append to Left \n2. Append \n3. Insert \n4. Get Size \n5. Search \n6. Get Index \n7. Remove \n8. Pop \n9. Print List \n10. Quit")
+        print("1. Append to Left \n2. Append \n3. Insert \n4. Get Size \n5. Search \n6. Get Index \n7. Remove \n8. Pop from Left \n9. Pop \n10. Print List \n11. Quit")
         print("\nWhat do you wanna do now?")
         case = int(input())
         # starting something, equivalent to Switch statement in C/C++
@@ -210,12 +222,19 @@ def main():
                 item = mylist.pop()
                 print("Congrats!", item, "has been removed.")
         elif case == 9:
+            # in this case, we will call our pop method without position
+            if mylist.is_empty():
+                print("Sorry, the list is empty.")
+            else:
+                item = mylist.popleft()
+                print("Congrats!", item, "has been removed.")
+        elif case == 10:
             # in this case, we will print our list
             if mylist.is_empty():
                 print("Sorry, the list is empty.")
             else:
                 mylist.printlist()
-        elif case == 10:
+        elif case == 11:
             # in this case, we will quit our script
             print("The script is gonna quit.")
             quit()
