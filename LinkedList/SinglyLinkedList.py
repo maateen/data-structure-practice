@@ -22,7 +22,7 @@ class SinglyLinkedList():
         self.head = head
 
     def appendleft(self, item):
-        # appendleft an item to the head of the list
+        # adds an item to the head of the list
         new_node = Node(item)
         new_node.next_node = self.head
         self.head = new_node
