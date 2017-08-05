@@ -120,6 +120,39 @@ class CircularLinkedList():
             print("Item is not in the list.")
         return found
 
+    def popleft(self):
+        # removes the first item of the list
+        if self.is_empty():
+            print("Sorry, the list is empty.")
+        else:
+            current = self.head
+            temp = current.item
+            if current.next_node is self.head:
+                self.head = None
+            else:
+                self.head = current.next_node
+                next_node = self.head
+                while next_node.next_node is not current:
+                    next_node = next_node.next_node
+                next_node.next_node = self.head
+            del current
+            return temp
+
+    def pop(self):
+        # removes the last item of the list
+        current = self.head
+        previous = None
+        while current.next_node is not self.head:
+            previous = current
+            current = current.next_node
+        if current == self.head:
+            self.head = None
+        else:
+            previous.next_node = self.head
+        temp = current.item
+        del current
+        return temp
+
     def remove(self, item):
         # removes an item from the list
         if self.is_empty():
@@ -139,28 +172,13 @@ class CircularLinkedList():
             if current is None:
                 print("Item is not in the list.")
             elif previous is None:
-                self.head = current.next_node
-                self.head.next_node = self.head
+                self.popleft()
+                print("Congrats!", item, "has been removed.")
             else:
                 temp = current.next_node
                 del current
                 print("Congrats!", item, "has been removed.")
                 previous.next_node = temp
-
-    def pop(self):
-        # removes the last item of the list
-        current = self.head
-        previous = None
-        while current.next_node is not self.head:
-            previous = current
-            current = current.next_node
-        if current == self.head:
-            self.head = None
-        else:
-            previous.next_node = self.head
-        temp = current.item
-        del current
-        return temp
 
     def printlist(self):
         if self.is_empty():
@@ -180,7 +198,7 @@ def main():
     mylist = CircularLinkedList()
     # mylist is an object of CircularLinkedList class
     while True:
-        print("1. Append to Left \n2. Append \n3. Insert \n4. Get Size \n5. Search \n6. Get Index \n7. Remove \n8. Pop \n9. Print List \n10. Quit")
+        print("1. Append to Left \n2. Append \n3. Insert \n4. Get Size \n5. Search \n6. Get Index \n7. Remove \n8. Pop from Left \n9. Pop \n10. Print List \n11. Quit")
         print("\nWhat do you wanna do now?")
         case = int(input())
         # starting something, equivalent to Switch statement in C/C++
@@ -234,12 +252,19 @@ def main():
                 item = mylist.pop()
                 print("Congrats!", item, "has been removed.")
         elif case == 9:
+            # in this case, we will call our pop method without position
+            if mylist.is_empty():
+                print("Sorry, the list is empty.")
+            else:
+                item = mylist.popleft()
+                print("Congrats!", item, "has been removed.")
+        elif case == 10:
             # in this case, we will print our list
             if mylist.is_empty():
                 print("Sorry, the list is empty.")
             else:
                 mylist.printlist()
-        elif case == 10:
+        elif case == 11:
             # in this case, we will quit our script
             print("The script is gonna quit.")
             quit()

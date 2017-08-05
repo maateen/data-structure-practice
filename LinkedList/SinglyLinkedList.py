@@ -145,8 +145,8 @@ class SinglyLinkedList():
             if current is None:
                 print("Item is not in the list.")
             elif previous is None:
-                self.head = current.next_node
-                del current
+                self.popleft()
+                print("Congrats!", item, "has been removed.")
             else:
                 temp = current.next_node
                 del current
