@@ -143,18 +143,21 @@ class CircularLinkedList():
 
     def pop(self):
         # removes the last item of the list
-        current = self.head
-        previous = None
-        while current.next_node is not self.head:
-            previous = current
-            current = current.next_node
-        if current == self.head:
-            self.head = None
+        if self.is_empty():
+            print("Empty list")
         else:
-            previous.next_node = self.head
-        temp = current.item
-        del current
-        return temp
+            current = self.head
+            previous = None
+            while current.next_node is not self.head:
+                previous = current
+                current = current.next_node
+            if current == self.head:
+                self.head = None
+            else:
+                previous.next_node = self.head
+            temp = current.item
+            del current
+            return temp
 
     def remove(self, item):
         # removes an item from the list
@@ -180,7 +183,7 @@ class CircularLinkedList():
             else:
                 temp = current.next_node
                 del current
-                print("item, "removed"")
+                print(item, "removed")
                 previous.next_node = temp
 
     def printlist(self):
@@ -252,14 +255,14 @@ def main():
                 print("Empty list")
             else:
                 item = mylist.pop()
-                print("item, "removed"")
+                print(item, "removed")
         elif case == 9:
             # in this case, we will call our pop method without position
             if mylist.is_empty():
                 print("Empty list")
             else:
                 item = mylist.popleft()
-                print("item, "removed"")
+                print(item, "removed")
         elif case == 10:
             # in this case, we will print our list
             if mylist.is_empty():

@@ -41,10 +41,12 @@ class SinglyLinkedList():
         # adds an item to an exact position of the list
         if position == 0:
             self.appendleft(item)
+            print(item, "inserted to position", position)
         elif position == self.size():
             self.append(item)
+            print(item, "inserted to position", position)
         elif position > self.size():
-            print("Position index is out of range.")
+            print("Index out of range")
         else:
             current = self.head
             index = 0
@@ -57,6 +59,7 @@ class SinglyLinkedList():
                     new_node = Node(item, current)
                     previous.next_node = new_node
                     current = False
+                    print(item, "inserted to position", position)
 
     def is_empty(self):
         # checks whether the list is empty or not
@@ -96,13 +99,13 @@ class SinglyLinkedList():
             else:
                 current = current.next_node
         if current is None:
-            print("Item is not in the list.")
+            print("Item not found")
         return found
 
     def popleft(self):
         # removes the first item of the list
         if self.is_empty():
-            print("Sorry, the list is empty.")
+            print("Empty list")
         else:
             current = self.head
             temp = current.item
@@ -113,7 +116,7 @@ class SinglyLinkedList():
     def pop(self):
         # removes the last item of the list
         if self.is_empty():
-            print("Sorry, the list is empty.")
+            print("Empty list")
         else:
             current = self.head
             previous = None
@@ -131,7 +134,7 @@ class SinglyLinkedList():
     def remove(self, item):
         # removes an item from the listot
         if self.is_empty():
-            print("Sorry, the list is empty.")
+            print("Empty list")
         else:
             current = self.head
             previous = None
@@ -143,19 +146,19 @@ class SinglyLinkedList():
                     previous = current
                     current = current.next_node
             if current is None:
-                print("Item is not in the list.")
+                print("Item not found")
             elif previous is None:
                 self.popleft()
-                print("Congrats!", item, "has been removed.")
+                print(item, "removed")
             else:
                 temp = current.next_node
                 del current
-                print("Congrats!", item, "has been removed.")
+                print(item, "removed")
                 previous.next_node = temp
 
     def printlist(self):
         if self.is_empty():
-            print("Sorry, the list is empty.")
+            print("Empty list")
         else:
             current = self.head
             print(current.item)
@@ -191,7 +194,6 @@ def main():
             print("Input item, you wanna push to list:")
             item = input()
             mylist.insert(position, item)
-            print("Congrats!", item, "has been inserted to position", position,".")
         elif case == 4:
             # in this case, we will call our size method
             print("There are", mylist.size(), "items in the list.")
@@ -209,7 +211,7 @@ def main():
         elif case == 7:
             # in this case, we will call our remove method
             if mylist.is_empty():
-                print("Sorry, the list is empty.")
+                print("Empty list")
             else:
                 print("Input item, you wanna remove:")
                 item = input()
@@ -217,21 +219,21 @@ def main():
         elif case == 8:
             # in this case, we will call our pop method without position
             if mylist.is_empty():
-                print("Sorry, the list is empty.")
+                print("Empty list")
             else:
                 item = mylist.pop()
-                print("Congrats!", item, "has been removed.")
+                print(item, "removed")
         elif case == 9:
             # in this case, we will call our pop method without position
             if mylist.is_empty():
-                print("Sorry, the list is empty.")
+                print("Empty list")
             else:
                 item = mylist.popleft()
-                print("Congrats!", item, "has been removed.")
+                print(item, "removed")
         elif case == 10:
             # in this case, we will print our list
             if mylist.is_empty():
-                print("Sorry, the list is empty.")
+                print("Empty list")
             else:
                 mylist.printlist()
         elif case == 11:
