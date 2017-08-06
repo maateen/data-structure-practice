@@ -254,14 +254,14 @@ def main():
             if mylist.is_empty():
                 print("Empty list")
             else:
-                item = mylist.pop()
+                item = mylist.popleft()
                 print(item, "removed")
         elif case == 9:
             # in this case, we will call our pop method without position
             if mylist.is_empty():
                 print("Empty list")
             else:
-                item = mylist.popleft()
+                item = mylist.pop()
                 print(item, "removed")
         elif case == 10:
             # in this case, we will print our list
